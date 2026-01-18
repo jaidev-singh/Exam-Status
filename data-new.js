@@ -389,42 +389,52 @@ const DataManager = {
     async handleClassChange(className) {
         // If student info is locked, don't load defaults (user already set up)
         if (this.studentInfo.locked) {
-            console.log('Student info locked - class change ignored');
+            console.log('🔒 Student info locked - class change ignored');
             return false;
         }
 
         const defaults = await DBManager.getClassDefaults(className);
+        console.log(`📋 Fetched defaults for Class ${className}:`, defaults);
+        
         if (!defaults) {
-            console.warn(`No defaults found for class ${className}`);
+            console.warn(`⚠️ No defaults found for class ${className}`);
+            alert(`⚠️ No defaults found for Class ${className}. Please check class-defaults.json file.`);
             return false;
         }
 
         // First-time setup: Auto-load defaults without confirmation
         const isFirstTime = this.trackingData.length === 0;
+        console.log(`🎯 First time setup: ${isFirstTime}, Tracking data count: ${this.trackingData.length}`);
         
         if (isFirstTime) {
-            // Auto-load defaults silently on first setup
+            console.log(`📦 Auto-loading defaults for Class ${className}...`);
+            
             // Auto-load subjects
             this.subjects = [...defaults.subjects];
             await DBManager.updateConfig('subjects', this.subjects);
+            console.log(`✅ Subjects loaded:`, this.subjects);
 
             // Auto-load learning methods
             this.learningMethods = [...defaults.learningMethods];
             await DBManager.updateConfig('learningMethods', this.learningMethods);
+            console.log(`✅ Learning methods loaded:`, this.learningMethods);
 
             // Auto-load exam types
             this.examTypes = [...defaults.examTypes];
             await DBManager.updateConfig('examTypes', this.examTypes);
+            console.log(`✅ Exam types loaded:`, this.examTypes);
 
             // Auto-load default chapters silently
             const chaptersAdded = await this.loadDefaultChapters(className, true);
             
-            console.log(`✅ Class ${className} defaults auto-loaded (first-time setup)`);
+            console.log(`✅ Class ${className} defaults auto-loaded (${chaptersAdded} chapters added)`);
             return true; // Indicate that defaults were loaded
         }
         
         // Not first time and not locked - shouldn't happen, but just update class
-        return false;    },
+        console.log(`ℹ️ Not first time and not locked - no action taken`);
+        return false;
+    },
 
     // Load default chapters for the class
     async loadDefaultChapters(className, autoLoad = false) {
