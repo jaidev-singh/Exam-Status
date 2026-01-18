@@ -432,9 +432,7 @@ const DataManager = {
 
     // Load default chapters for the class
     async loadDefaultChapters(className, autoLoad = false) {
-        console.log(`🔍 loadDefaultChapters called for Class ${className}, autoLoad=${autoLoad}`);
         const defaultChapters = await DBManager.getDefaultChapters(className);
-        console.log(`📦 Retrieved ${defaultChapters ? defaultChapters.length : 0} chapters from database:`, defaultChapters);
         
         if (defaultChapters && defaultChapters.length > 0) {
             // Auto-load mode (first-time setup) or ask for confirmation
@@ -447,7 +445,6 @@ const DataManager = {
             }
             
             if (shouldLoad) {
-                console.log(`✅ Starting to add ${defaultChapters.length} chapters...`);
                 let added = 0;
                 for (const chapter of defaultChapters) {
                     const learningStatus = {};
@@ -472,16 +469,10 @@ const DataManager = {
                     added++;
                 }
                 
-                console.log(`✅ Successfully added ${added} chapters to tracking`);
                 return added;
-            } else {
-                console.log(`⏭️ User cancelled chapter loading`);
-                return 0;
             }
-        } else {
-            console.log(`⚠️ No default chapters found for Class ${className}`);
-            return 0;
         }
+        return 0;
     },
 
     // Export data (enhanced with backups)

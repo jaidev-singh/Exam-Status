@@ -59,10 +59,6 @@ const DBManager = {
                     await db.classDefaults.put(defaultsToSave);
                     
                     // Load default chapters for this class only
-                    console.log(`🔍 Full JSON structure:`, Object.keys(deployedData));
-                    console.log(`🔍 defaultChapters exists:`, deployedData.defaultChapters !== undefined);
-                    console.log(`🔍 defaultChapters value:`, deployedData.defaultChapters);
-                    
                     let classChapters = [];
                     if (deployedData.defaultChapters) {
                         // Handle both object format {className: [...]} and array format
@@ -225,7 +221,6 @@ const DBManager = {
         };
         
         await db.backups.add(backup);
-        console.log(`💾 Backup created: ${description}`);
         return backup;
     },
 
