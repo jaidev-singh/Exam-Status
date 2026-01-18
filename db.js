@@ -59,8 +59,10 @@ const DBManager = {
                     await db.classDefaults.put(defaultsToSave);
                     
                     // Load default chapters for this class only
-                    console.log(`🔍 Checking for defaultChapters in JSON:`, deployedData.defaultChapters ? 'Found' : 'Missing');
-                    console.log(`🔍 Type:`, Array.isArray(deployedData.defaultChapters) ? 'Array' : typeof deployedData.defaultChapters);
+                    console.log(`🔍 Full JSON structure:`, Object.keys(deployedData));
+                    console.log(`🔍 defaultChapters exists:`, deployedData.defaultChapters !== undefined);
+                    console.log(`🔍 defaultChapters value:`, deployedData.defaultChapters);
+                    
                     let classChapters = [];
                     if (deployedData.defaultChapters) {
                         // Handle both object format {className: [...]} and array format
