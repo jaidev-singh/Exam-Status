@@ -35,6 +35,7 @@ const DBManager = {
         // Check if already initialized
         const existing = await db.classDefaults.count();
         if (existing > 0) {
+            console.log('✅ Class defaults already loaded from IndexedDB');
             return; // Already have defaults
         }
 
@@ -43,7 +44,7 @@ const DBManager = {
             const response = await fetch('class-defaults.json');
             if (response.ok) {
                 const deployedData = await response.json();
-                console.log('📦 Loading class defaults from deployed JSON...');
+                console.log('📦 Loading class defaults from class-defaults.json...');
                 
                 const defaultsToLoad = [];
                 for (const [className, data] of Object.entries(deployedData.classes)) {
@@ -56,11 +57,19 @@ const DBManager = {
                 }
                 
                 await db.classDefaults.bulkPut(defaultsToLoad);
-                console.log('✅ Class defaults loaded from deployed JSON');
+                
+                // Also load default chapters if available
+                if (deployedData.defaultChapters) {
+                    await db.defaultChapters.bulkPut(deployedData.defaultChapters);
+                    console.log(`✅ Loaded ${deployedData.defaultChapters.length} default chapters`);
+                }
+                
+                console.log('✅ Class defaults loaded from class-defaults.json');
                 return;
             }
         } catch (error) {
-            console.log('⚠️ No deployed class-defaults.json found, using built-in defaults');
+            console.log('⚠️ No class-defaults.json found, using built-in defaults');
+            console.error(error);
         }
 
         // Fallback to hardcoded defaults
@@ -193,6 +202,46 @@ const DBManager = {
         await db.backups.add(backup);
         console.log(`💾 Backup created: ${description}`);
         return backup;
+    },
+
+    // Force reload defaults from class-defaults.json (for admin updates)
+    async reloadDefaultsFromJSON() {
+        try {
+            const response = await fetch('class-defaults.json?' + Date.now()); // Cache bust
+            if (!response.ok) {
+                throw new Error('Failed to fetch class-defaults.json');
+            }
+            
+            const deployedData = await response.json();
+            console.log('📦 Reloading class defaults from class-defaults.json...');
+            
+            // Clear existing defaults
+            await db.classDefaults.clear();
+            await db.defaultChapters.clear();
+            
+            // Load class defaults
+            const defaultsToLoad = [];
+            for (const [className, data] of Object.entries(deployedData.classes)) {
+                defaultsToLoad.push({
+                    className: className,
+                    subjects: data.subjects || [],
+                    learningMethods: data.learningMethods || [],
+                    examTypes: data.examTypes || []
+                });
+            }
+            await db.classDefaults.bulkPut(defaultsToLoad);
+            
+            // Load default chapters
+            if (deployedData.defaultChapters && deployedData.defaultChapters.length > 0) {
+                await db.defaultChapters.bulkPut(deployedData.defaultChapters);
+            }
+            
+            console.log('✅ Class defaults reloaded successfully!');
+            return true;
+        } catch (error) {
+            console.error('❌ Failed to reload defaults:', error);
+            return false;
+        }
     },
 
     // Restore from backup
