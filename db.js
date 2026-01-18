@@ -59,15 +59,22 @@ const DBManager = {
                     await db.classDefaults.put(defaultsToSave);
                     
                     // Load default chapters for this class only
-                    if (deployedData.defaultChapters && Array.isArray(deployedData.defaultChapters)) {
-                        const classChapters = deployedData.defaultChapters.filter(ch => ch.className === className);
+                    let classChapters = [];
+                    if (deployedData.defaultChapters) {
+                        // Handle both object format {className: [...]} and array format
+                        if (Array.isArray(deployedData.defaultChapters)) {
+                            classChapters = deployedData.defaultChapters.filter(ch => ch.className === className);
+                        } else if (deployedData.defaultChapters[className]) {
+                            classChapters = deployedData.defaultChapters[className];
+                        }
+                        
                         console.log(`📖 Found ${classChapters.length} default chapters in JSON for Class ${className}`);
                         if (classChapters.length > 0) {
                             await db.defaultChapters.bulkPut(classChapters);
                             console.log(`✅ Loaded ${classChapters.length} default chapters for Class ${className}`);
                         }
                     } else {
-                        console.log(`⚠️ No defaultChapters array found in JSON`);
+                        console.log(`⚠️ No defaultChapters found in JSON`);
                     }
                     
                     console.log(`✅ Class ${className} defaults loaded from JSON`);
