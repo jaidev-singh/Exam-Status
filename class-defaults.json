@@ -1,0 +1,98 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-01-16T00:00:00.000Z",
+  "classes": {
+    "6": {
+      "subjects": [
+        "Mathematics",
+        "Science",
+        "English",
+        "Social Studies",
+        "Hindi",
+        "Sanskrit"
+      ],
+      "learningMethods": [
+        "School",
+        "Tuition",
+        "Online App",
+        "Self Study"
+      ],
+      "examTypes": [
+        "Half Yearly",
+        "Annual",
+        "Unit Test 1",
+        "Unit Test 2",
+        "Weekly Test"
+      ]
+    },
+    "7": {
+      "subjects": [
+        "Mathematics",
+        "Science",
+        "English",
+        "Social Studies",
+        "Hindi",
+        "Sanskrit"
+      ],
+      "learningMethods": [
+        "School",
+        "Tuition",
+        "Online App",
+        "Self Study"
+      ],
+      "examTypes": [
+        "Half Yearly",
+        "Annual",
+        "Unit Test 1",
+        "Unit Test 2",
+        "Weekly Test"
+      ]
+    },
+    "8": {
+      "subjects": [
+        "Mathematics",
+        "Science",
+        "English",
+        "Social Studies",
+        "Hindi",
+        "Sanskrit"
+      ],
+      "learningMethods": [
+        "School",
+        "Tuition",
+        "Online App",
+        "Self Study"
+      ],
+      "examTypes": [
+        "Half Yearly",
+        "Annual",
+        "Unit Test 1",
+        "Unit Test 2",
+        "Weekly Test"
+      ]
+    },
+    "9": {
+      "subjects": [
+        "Mathematics",
+        "Science",
+        "English",
+        "Social Studies",
+        "Hindi",
+        "Sanskrit"
+      ],
+      "learningMethods": [
+        "School",
+        "Tuition",
+        "Online App",
+        "Self Study"
+      ],
+      "examTypes": [
+        "Half Yearly",
+        "Annual",
+        "Unit Test 1",
+        "Unit Test 2",
+        "Board Exam"
+      ]
+    }
+  }
+}

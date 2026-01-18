@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Readiness Tracker</title>
+    <!-- Modular CSS Files -->
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-table.css">
+    <link rel="stylesheet" href="style-cards.css">
+    <link rel="stylesheet" href="style-modals.css">
+    <link rel="stylesheet" href="style-daily.css">
+    <link rel="stylesheet" href="style-responsive.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 Exam Readiness Tracker</h1>
+        </header>
+
+        <!-- Student Info Section -->
+        <section class="student-info">
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Child Name:</label>
+                    <input type="text" id="studentName" placeholder="Enter child's name">
+                </div>
+                <div class="info-item">
+                    <label>Class:</label>
+                    <select id="studentClass" onchange="handleClassChange()">
+                        <option value="" selected>Select Class...</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                    </select>
+                </div>
+                <div class="info-item">
+                    <label>Last Review Date:</label>
+                    <input type="date" id="reviewDate">
+                </div>
+            </div>
+            <div style="margin-top: 15px; text-align: right;">
+                <button id="lockStudentInfo" onclick="lockStudentInfo()" style="display: none;">
+                    🔒 Lock Name & Class
+                </button>
+                <small style="color: #6c757d; display: block; margin-top: 8px;">
+                    💡 After selecting class, name and class will be locked automatically to prevent data loss
+                </small>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('summary', this)">🔥 In Progress</button>
+            <button class="tab-btn" onclick="switchTab('dailyWork', this)">✅ Daily Work</button>
+            <button class="tab-btn" onclick="switchTab('examSummary', this)">📝 Exam Summary</button>
+            <button class="tab-btn" onclick="switchTab('subjects', this)">📚 All Subjects</button>
+        </nav>
+
+        <!-- Summary View (In Progress Only) -->
+        <section id="summaryView" class="view-section active">
+            <div class="summary-header">
+                <h2>🔥 Currently In Progress</h2>
+                <p class="summary-subtitle">Focus on what you're actively working on</p>
+            </div>
+            
+            <!-- Readiness Overview -->
+            <div class="readiness-overview">
+                <h3>Subject Readiness</h3>
+                <div id="readinessCards" class="readiness-cards">
+                    <!-- Dynamic readiness cards will be inserted here -->
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="summaryTable">
+                    <thead>
+                        <tr id="summaryTableHeader">
+                            <!-- Dynamic headers -->
+                        </tr>
+                    </thead>
+                    <tbody id="summaryTableBody">
+                        <!-- Dynamic in-progress rows -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Daily Work View -->
+        <section id="dailyWorkView" class="view-section">
+            <div class="daily-work-header">
+                <h2>✅ Daily Work Tracker</h2>
+                <p class="daily-subtitle">Plan your day, track your progress</p>
+            </div>
+
+            <!-- Date Selector -->
+            <div class="date-selector-section" style="padding: 20px; background: #f8f9fa; border-radius: 10px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="changeDailyDate(-1)" class="btn btn-secondary" style="padding: 10px 20px;">
+                        ◀ Previous Day
+                    </button>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                        <input type="date" id="selectedDailyDate" onchange="loadDailyDate()" 
+                               style="padding: 10px; border: 2px solid #667eea; border-radius: 8px; font-size: 16px; font-weight: 600;">
+                        <small id="dateRangeInfo" style="color: #666;">Select: 2 days back to 7 days ahead</small>
+                    </div>
+                    <button onclick="changeDailyDate(1)" class="btn btn-secondary" style="padding: 10px 20px;">
+                        Next Day ▶
+                    </button>
+                    <button onclick="goToToday()" class="btn btn-primary" style="padding: 10px 20px;">
+                        📅 Today
+                    </button>
+                </div>
+            </div>
+
+            <!-- Current Date Display -->
+            <div id="currentDateDisplay" style="text-align: center; font-size: 18px; font-weight: 600; color: #667eea; margin-bottom: 20px;">
+                <!-- Will show selected date -->
+            </div>
+
+            <!-- Today's Plan -->
+            <div class="daily-plan-section">
+                <h3>📋 Plan for This Day:</h3>
+                <div id="todaysPlan" class="tasks-container">
+                    <!-- Dynamic task list -->
+                </div>
+                <div class="add-task-form">
+                    <select id="taskSubject" class="task-subject-select">
+                        <option value="">Select Subject...</option>
+                    </select>
+                    <input type="text" id="taskDescription" placeholder="e.g., 10 problems from Ch 8" class="task-input">
+                    <button onclick="addDailyTask()" class="btn btn-add">+ Add Task</button>
+                </div>
+            </div>
+
+            <!-- Today's Completion -->
+            <div class="daily-completion-section">
+                <h3>💪 What I Did This Day:</h3>
+                <div id="todaysCompletion" class="completion-container">
+                    <!-- Dynamic completion tracking -->
+                </div>
+                <div class="daily-actions">
+                    <div id="todayScore" class="today-score"></div>
+                    <small style="color: #666; font-style: italic;">Changes are auto-saved • No lock needed 🔓</small>
+                </div>
+            </div>
+
+            <!-- Weekly Overview -->
+            <div class="weekly-overview-section">
+                <h3>📊 This Week</h3>
+                <div id="weekDates" class="week-dates"></div>
+                <div id="weekBars" class="week-bars-container">
+                    <!-- Weekly progress bars -->
+                </div>
+                <div id="weekStats" class="week-stats">
+                    <!-- Weekly statistics -->
+                </div>
+            </div>
+
+            <div class="daily-navigation">
+                <button onclick="switchTab('subjects')" class="btn btn-secondary">📚 View Chapter Progress</button>
+            </div>
+        </section>
+
+        <!-- Exam Summary View -->
+        <section id="examSummaryView" class="view-section">
+            <div class="exam-summary-header">
+                <h2>📝 Exam Readiness Summary</h2>
+                <div class="exam-selector">
+                    <label for="examSummarySelect">Select Exam:</label>
+                    <select id="examSummarySelect" onchange="loadExamSummary()">
+                        <option value="">Choose an exam...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="examSummaryContent" class="exam-summary-content">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📝</div>
+                    <h3>Select an Exam</h3>
+                    <p>Choose an exam from the dropdown to see its readiness summary</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subject Detail View (All Chapters) -->
+        <section id="subjectsView" class="view-section">
+            <div class="subjects-header">
+                <h2>📚 All Subjects & Chapters</h2>
+                <div class="filter-controls">
+                    <select id="subjectFilter" onchange="filterBySubject()">
+                        <option value="all">All Subjects</option>
+                    </select>
+                    <select id="examFilter" onchange="filterByExam()">
+                        <option value="all">All Exams</option>
+                    </select>
+                    <select id="statusFilter" onchange="applyAllFilters()">
+                        <option value="all">All Chapters</option>
+                        <option value="incomplete">⚠️ Incomplete Only</option>
+                        <option value="weak">😰 Weak Confidence</option>
+                    </select>
+                </div>
+            </div>
+
+        <!-- Chapter Tracking Table -->
+        <section class="chapter-tracking">
+            <div class="section-header">
+                <h2>Chapter-wise Tracking</h2>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="switchTab('dailyWork')">✅ Daily Work</button>
+                    <button class="btn btn-secondary" onclick="openModal('subjectModal')">📚 Manage Subjects</button>
+                    <button class="btn btn-secondary" onclick="openModal('methodModal')">🎯 Manage Learning Methods</button>
+                    <button class="btn btn-secondary" onclick="openModal('examModal')">📝 Manage Exams</button>
+                    <button class="btn btn-success" onclick="openModal('backupModal')">🔐 Backups & Safety</button>
+                    <button class="btn" onclick="syncSubjectsCheck()" style="background: #ff9800; color: white;" title="Check for chapters with outdated subject names">🔄 Check Subject Sync</button>
+                    <button class="btn btn-primary" onclick="addNewRow()">➕ Add Chapter</button>
+                </div>
+            </div>
+            
+            <div class="table-wrapper">
+                <table id="trackingTable">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Chapter No</th>
+                            <th>Chapter Name</th>
+                            <th>School</th>
+                            <th>Tuition</th>
+                            <th>Online App</th>
+                            <th>Self Study</th>
+                            <th>✍️ Writing Done</th>
+                            <th>😐 Confidence</th>
+                            <th>Notes / Gaps</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Dynamic rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 200px;">
+                    <small style="color: #666;">💾 Auto-saved • 🔐 Protected with backups</small>
+                </div>
+                <button class="btn btn-secondary" onclick="exportToExcel()">📊 Export to Excel</button>
+                <button class="btn btn-primary" onclick="exportData()">📥 Export Full Backup</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Subject Management Modal -->
+    <div id="subjectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📚 Manage Subjects</h2>
+                <button class="close-btn" onclick="closeModal('subjectModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input type="text" id="newSubjectInput" placeholder="Enter new subject name" 
+                           onkeypress="handleEnterKey(event, addSubject)">
+                    <button class="btn btn-primary" onclick="addSubject()">➕ Add Subject</button>
+                </div>
+                <div id="subjectManager" class="manager-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learning Method Management Modal -->
+    <div id="methodModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎯 Manage Learning Methods</h2>
+                <button class="close-btn" onclick="closeModal('methodModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input type="text" id="newMethodInput" placeholder="Enter new learning method" 
+                           onkeypress="handleEnterKey(event, addLearningMethod)">
+                    <button class="btn btn-primary" onclick="addLearningMethod()">➕ Add Method</button>
+                </div>
+                <div id="methodManager" class="manager-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exam Type Management Modal -->
+    <div id="examModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📝 Manage Exam Types</h2>
+                <button class="close-btn" onclick="closeModal('examModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input type="text" id="newExamInput" placeholder="e.g., Half Yearly, Unit Test 3" 
+                           onkeypress="handleEnterKey(event, addExamType)">
+                    <button class="btn btn-primary" onclick="addExamType()">➕ Add Exam</button>
+                </div>
+                <div id="examManager" class="manager-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backup Management Modal -->
+    <div id="backupModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h2>🔐 Backup & Recovery Center</h2>
+                <button class="close-btn" onclick="closeModal('backupModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="backup-info-box" style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    <p style="margin: 0 0 10px 0;"><strong>✅ Your data is now protected with IndexedDB!</strong></p>
+                    <p style="margin: 0; font-size: 14px;">Automatically backed up daily. Survives browser cache clearing.</p>
+                </div>
+
+                <div class="backup-actions" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <button onclick="exportData()" class="btn btn-primary" style="flex: 1;">
+                        📥 Export Full Backup
+                    </button>
+                    <button onclick="document.getElementById('importBackupFile').click()" class="btn btn-secondary" style="flex: 1;">
+                        📤 Import Backup
+                    </button>
+                    <input type="file" id="importBackupFile" accept=".json" style="display:none" 
+                           onchange="handleBackupImport(event)">
+                </div>
+
+                <div id="backupsList" style="margin-top: 20px;">
+                    <h4 style="margin-bottom: 10px;">📜 Recent Auto-Backups</h4>
+                    <div id="backupsContainer" class="backups-list">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+
+                <div class="backup-tips" style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px;">
+                    <strong>💡 Backup Best Practices:</strong>
+                    <ul style="margin: 10px 0 0 20px; font-size: 14px;">
+                        <li>Export weekly to Google Drive or Dropbox</li>
+                        <li>Keep at least 2 external copies</li>
+                        <li>Export before clearing browser data</li>
+                    </ul>
+                </div>
+
+                <div class="danger-zone" style="margin-top: 20px; padding: 15px; background: #ffebee; border-radius: 8px; border-left: 4px solid #f44336;">
+                    <strong style="color: #d32f2f;">⚠️ Danger Zone</strong>
+                    <p style="margin: 10px 0 5px 0; font-size: 14px;">Only use if you want to completely start over:</p>
+                    <button onclick="resetToSampleData()" class="btn btn-danger" style="font-size: 14px; padding: 8px 16px;">
+                        🗑️ Reset to Sample Data
+                    </button>
+                    <p style="margin: 5px 0 0 0; font-size: 12px; color: #666;">This will delete all chapters and restore sample data. A backup will be created first.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dexie.js Library (IndexedDB wrapper) -->
+    <script src="https://unpkg.com/dexie@3.2.4/dist/dexie.min.js"></script>
+    
+    <!-- Modular JavaScript Files -->
+    <script src="db.js?v=3"></script>
+    <script src="data-new.js?v=3"></script>
+    <script src="calculations.js?v=3"></script>
+    <script src="ui-utils.js?v=3"></script>
+    <script src="ui-table.js?v=3"></script>
+    <script src="ui-readiness.js?v=3"></script>
+    <script src="ui-managers.js?v=3"></script>
+    <script src="ui-daily.js?v=3"></script>
+    <script src="ui.js?v=3"></script>
+    <script src="app.js?v=3"></script>
+</body>
+</html>

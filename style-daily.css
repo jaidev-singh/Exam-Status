@@ -1,0 +1,326 @@
+/* Daily Work Styles */
+.daily-work-header {
+    padding: 30px;
+    background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+    color: white;
+    text-align: center;
+}
+
+.daily-subtitle {
+    margin-top: 10px;
+    opacity: 0.9;
+    font-size: 1.1em;
+}
+
+.daily-plan-section,
+.daily-completion-section,
+.weekly-overview-section {
+    padding: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tasks-container,
+.completion-container {
+    margin: 20px 0;
+    min-height: 100px;
+}
+
+.empty-tasks {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 1.1em;
+}
+
+/* Task Item */
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #ddd;
+}
+
+.task-item.task-done {
+    border-left-color: #00b894;
+    background: #e8f8f5;
+}
+
+.task-item.task-partial {
+    border-left-color: #fdcb6e;
+    background: #fffbea;
+}
+
+.task-item.task-notDone {
+    border-left-color: #d63031;
+    background: #ffe8e8;
+}
+
+.task-checkbox {
+    font-size: 1.5em;
+    min-width: 30px;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-subject {
+    font-weight: 600;
+    color: #667eea;
+    margin-right: 8px;
+}
+
+.task-description {
+    color: #333;
+}
+
+.btn-remove-task {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.btn-remove-task:hover {
+    opacity: 1;
+}
+
+/* Add Task Form */
+.add-task-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.task-subject-select {
+    min-width: 150px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.task-input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.task-input:focus,
+.task-subject-select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Completion Item */
+.completion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.completion-task-info {
+    flex: 1;
+}
+
+.status-dropdown {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    background: white;
+    cursor: pointer;
+}
+
+.status-dropdown:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Daily Actions */
+.daily-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.today-score {
+    flex: 1;
+}
+
+.score-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+}
+
+.score-excellent {
+    background: #e8f8f5;
+    border: 2px solid #00b894;
+}
+
+.score-good {
+    background: #fffbea;
+    border: 2px solid #fdcb6e;
+}
+
+.score-needs-work {
+    background: #ffe8e8;
+    border: 2px solid #d63031;
+}
+
+.score-label {
+    font-weight: 600;
+}
+
+.score-value {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* Weekly Overview */
+.week-dates {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.week-bars-container {
+    margin: 30px 0;
+}
+
+.week-day-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.day-label {
+    min-width: 50px;
+    font-weight: 600;
+    color: #666;
+}
+
+.bar-container {
+    flex: 1;
+    height: 30px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: white;
+    font-weight: 600;
+}
+
+.bar-excellent {
+    background: linear-gradient(90deg, #00b894, #00cec9);
+}
+
+.bar-good {
+    background: linear-gradient(90deg, #fdcb6e, #ffeaa7);
+}
+
+.bar-needs-work {
+    background: linear-gradient(90deg, #d63031, #ff7675);
+}
+
+.bar-fill.no-data {
+    background: #ddd;
+}
+
+.bar-value {
+    min-width: 60px;
+    text-align: right;
+    font-weight: 600;
+    color: #666;
+}
+
+/* Week Stats */
+.week-stats {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.weekly-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.avg-excellent {
+    color: #00b894;
+}
+
+.avg-good {
+    color: #fdcb6e;
+}
+
+.avg-needs-work {
+    color: #d63031;
+}
+
+.subjects-worked {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.subject-freq {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 15px;
+    background: white;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Daily Navigation */
+.daily-navigation {
+    padding: 20px 30px;
+    text-align: center;
+    background: #f8f9fa;
+}
+
+.daily-navigation .btn {
+    min-width: 200px;
+}

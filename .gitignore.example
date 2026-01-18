@@ -1,0 +1,28 @@
+# Exam Status Tracker - Git Ignore Suggestions
+
+# Admin Panel (DO NOT DEPLOY TO PRODUCTION)
+admin/
+
+# Backup files
+*.backup
+backups/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
