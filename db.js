@@ -61,10 +61,13 @@ const DBManager = {
                     // Load default chapters for this class only
                     if (deployedData.defaultChapters && Array.isArray(deployedData.defaultChapters)) {
                         const classChapters = deployedData.defaultChapters.filter(ch => ch.className === className);
+                        console.log(`📖 Found ${classChapters.length} default chapters in JSON for Class ${className}`);
                         if (classChapters.length > 0) {
                             await db.defaultChapters.bulkPut(classChapters);
                             console.log(`✅ Loaded ${classChapters.length} default chapters for Class ${className}`);
                         }
+                    } else {
+                        console.log(`⚠️ No defaultChapters array found in JSON`);
                     }
                     
                     console.log(`✅ Class ${className} defaults loaded from JSON`);
