@@ -402,38 +402,37 @@ const DataManager = {
             return false;
         }
 
-        // First-time setup: Auto-load defaults without confirmation
-        const isFirstTime = this.trackingData.length === 0;
-        console.log(`🎯 First time setup: ${isFirstTime}, Tracking data count: ${this.trackingData.length}`);
+        // Auto-load defaults whenever class changes and not locked
+        // This ensures UI always refreshes with the selected class defaults
+        console.log(`📦 Loading defaults for Class ${className}...`);
         
+        // Auto-load subjects
+        this.subjects = [...defaults.subjects];
+        await DBManager.updateConfig('subjects', this.subjects);
+        console.log(`✅ Subjects loaded (${this.subjects.length}):`, this.subjects);
+
+        // Auto-load learning methods
+        this.learningMethods = [...defaults.learningMethods];
+        await DBManager.updateConfig('learningMethods', this.learningMethods);
+        console.log(`✅ Learning methods loaded (${this.learningMethods.length}):`, this.learningMethods);
+
+        // Auto-load exam types
+        this.examTypes = [...defaults.examTypes];
+        await DBManager.updateConfig('examTypes', this.examTypes);
+        console.log(`✅ Exam types loaded (${this.examTypes.length}):`, this.examTypes);
+
+        // Only load chapters if tracking data is empty (first time)
+        const isFirstTime = this.trackingData.length === 0;
+        let chaptersAdded = 0;
         if (isFirstTime) {
-            console.log(`📦 Auto-loading defaults for Class ${className}...`);
-            
-            // Auto-load subjects
-            this.subjects = [...defaults.subjects];
-            await DBManager.updateConfig('subjects', this.subjects);
-            console.log(`✅ Subjects loaded:`, this.subjects);
-
-            // Auto-load learning methods
-            this.learningMethods = [...defaults.learningMethods];
-            await DBManager.updateConfig('learningMethods', this.learningMethods);
-            console.log(`✅ Learning methods loaded:`, this.learningMethods);
-
-            // Auto-load exam types
-            this.examTypes = [...defaults.examTypes];
-            await DBManager.updateConfig('examTypes', this.examTypes);
-            console.log(`✅ Exam types loaded:`, this.examTypes);
-
-            // Auto-load default chapters silently
-            const chaptersAdded = await this.loadDefaultChapters(className, true);
-            
-            console.log(`✅ Class ${className} defaults auto-loaded (${chaptersAdded} chapters added)`);
-            return true; // Indicate that defaults were loaded
+            console.log(`🎯 First time setup - loading default chapters...`);
+            chaptersAdded = await this.loadDefaultChapters(className, true);
+        } else {
+            console.log(`ℹ️ Not first time - keeping existing chapter data`);
         }
         
-        // Not first time and not locked - shouldn't happen, but just update class
-        console.log(`ℹ️ Not first time and not locked - no action taken`);
-        return false;
+        console.log(`✅ Class ${className} defaults loaded (${chaptersAdded} chapters added)`);
+        return true; // Always indicate that defaults were loaded
     },
 
     // Load default chapters for the class

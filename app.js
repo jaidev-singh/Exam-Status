@@ -72,14 +72,6 @@ async function updateStudentInfo() {
     await DataManager.updateStudentInfo('name', name);
     await DataManager.updateStudentInfo('class', className);
     await DataManager.updateStudentInfo('reviewDate', document.getElementById('reviewDate').value);
-    
-    // Auto-lock if name and class are filled and not already locked
-    if (name && className && !DataManager.studentInfo.locked) {
-        // Check if defaults were loaded (trackingData exists)
-        if (DataManager.trackingData.length > 0) {
-            await lockStudentInfo();
-        }
-    }
 }
 
 // Lock student info (name and class become fixed)
@@ -92,10 +84,25 @@ async function lockStudentInfo() {
         return;
     }
     
-    if (confirm(`Lock student info?\n\nName: ${name}\nClass: ${className}\n\nAfter locking, these fields cannot be changed.`)) {
-        await DataManager.lockStudentInfo();
-        applyLockedState();
-        alert('🔒 Student info locked! Name and class are now fixed.');
+    if (confirm(`Lock student info?\n\nName: ${name}\nClass: ${className}\n\nThis will load the default subjects and chapters for Class ${className}.\n\nAfter locking, name and class cannot be changed.`)) {
+        // Load defaults for the selected class
+        console.log(`📦 Loading defaults for Class ${className}...`);
+        const defaultsLoaded = await DataManager.handleClassChange(className);
+        
+        if (defaultsLoaded) {
+            console.log('✅ Defaults loaded successfully');
+            
+            // Refresh UI to show loaded data
+            await UIRenderer.refreshAll();
+            
+            // Lock the student info
+            await DataManager.lockStudentInfo();
+            applyLockedState();
+            
+            alert(`✅ Setup Complete!\n\n📚 Subjects: ${DataManager.subjects.length}\n🎯 Methods: ${DataManager.learningMethods.length}\n📝 Exams: ${DataManager.examTypes.length}\n📖 Chapters: ${DataManager.trackingData.length}\n\n🔒 Name and class are now locked.`);
+        } else {
+            alert('⚠️ Failed to load defaults. Please try again.');
+        }
     }
 }
 
@@ -113,26 +120,11 @@ async function syncSubjectsCheck() {
     }
 }
 
-// Handle class change - triggered by dropdown
-async function handleClassChange() {
+// Update just the class value (no defaults loading)
+async function updateClassValue() {
     const className = document.getElementById('studentClass').value;
-    
-    // Only proceed if a valid class is selected
-    if (!className) {
-        return; // User selected "Select Class..." placeholder
-    }
-    
-    const defaultsLoaded = await DataManager.updateStudentInfo('class', className);
-    
-    if (defaultsLoaded) {
-        // Refresh all UI to show new subjects/methods
-        await UIRenderer.refreshAll();
-        
-        // Auto-lock after first setup
-        const name = document.getElementById('studentName').value;
-        if (name && className && !DataManager.studentInfo.locked) {
-            await lockStudentInfo();
-        }
+    if (className) {
+        await DataManager.updateStudentInfo('class', className);
     }
 }
 

@@ -1,5 +1,12 @@
 # 🧪 Local Testing Guide
+// 1. Close the database connection
+await db.close();
 
+// 2. Delete the database
+await Dexie.delete('ExamTrackerDB');
+
+// 3. Reload the page to start fresh
+location.reload();
 ## ⚠️ Important: File Access Limitation
 
 When opening `index.html` directly with `file://` protocol (double-clicking the file), the browser **cannot load** `class-defaults.json` due to CORS security restrictions.

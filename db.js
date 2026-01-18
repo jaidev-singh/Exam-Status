@@ -20,7 +20,6 @@ const DBManager = {
         try {
             await db.open();
             await this.migrateFromLocalStorage();
-            await this.initializeClassDefaults();
             await this.setupAutoBackup();
             console.log('✅ Database initialized successfully');
             return true;
@@ -30,78 +29,90 @@ const DBManager = {
         }
     },
 
-    // Initialize default subjects for each class
-    async initializeClassDefaults() {
-        // Check if already initialized
-        const existing = await db.classDefaults.count();
-        if (existing > 0) {
-            console.log('✅ Class defaults already loaded from IndexedDB');
-            return; // Already have defaults
+    // Load defaults for a specific class on-demand
+    async loadClassDefaultsOnDemand(className) {
+        // Check if this specific class defaults already exist
+        const existing = await db.classDefaults.get(className);
+        if (existing) {
+            console.log(`✅ Class ${className} defaults already in IndexedDB`);
+            return existing; // Return existing defaults
         }
+
+        console.log(`📦 Loading defaults for Class ${className}...`);
 
         // Try to load from deployed JSON file first
         try {
             const response = await fetch('class-defaults.json');
             if (response.ok) {
                 const deployedData = await response.json();
-                console.log('📦 Loading class defaults from class-defaults.json...');
                 
-                const defaultsToLoad = [];
-                for (const [className, data] of Object.entries(deployedData.classes)) {
-                    defaultsToLoad.push({
+                // Load defaults for the requested class only
+                const classData = deployedData.classes[className];
+                if (classData) {
+                    const defaultsToSave = {
                         className: className,
-                        subjects: data.subjects || [],
-                        learningMethods: data.learningMethods || [],
-                        examTypes: data.examTypes || []
-                    });
+                        subjects: classData.subjects || [],
+                        learningMethods: classData.learningMethods || [],
+                        examTypes: classData.examTypes || []
+                    };
+                    
+                    await db.classDefaults.put(defaultsToSave);
+                    
+                    // Load default chapters for this class only
+                    if (deployedData.defaultChapters && Array.isArray(deployedData.defaultChapters)) {
+                        const classChapters = deployedData.defaultChapters.filter(ch => ch.className === className);
+                        if (classChapters.length > 0) {
+                            await db.defaultChapters.bulkPut(classChapters);
+                            console.log(`✅ Loaded ${classChapters.length} default chapters for Class ${className}`);
+                        }
+                    }
+                    
+                    console.log(`✅ Class ${className} defaults loaded from JSON`);
+                    return defaultsToSave;
                 }
-                
-                await db.classDefaults.bulkPut(defaultsToLoad);
-                
-                // Also load default chapters if available
-                if (deployedData.defaultChapters && Array.isArray(deployedData.defaultChapters) && deployedData.defaultChapters.length > 0) {
-                    await db.defaultChapters.bulkPut(deployedData.defaultChapters);
-                    console.log(`✅ Loaded ${deployedData.defaultChapters.length} default chapters`);
-                }
-                
-                console.log('✅ Class defaults loaded from class-defaults.json');
-                return;
             }
         } catch (error) {
             console.log('⚠️ No class-defaults.json found (this is normal for local file:// access)');
             console.log('ℹ️ Using built-in defaults. To load custom defaults, deploy to a web server or use Netlify.');
         }
 
-        // Fallback to hardcoded defaults
-        const defaults = [
-            {
-                className: '6',
+        // Fallback to hardcoded defaults for the requested class
+        const hardcodedDefaults = {
+            '6': {
                 subjects: ['Mathematics', 'Science', 'English', 'Social Studies', 'Hindi', 'Sanskrit'],
                 learningMethods: ['School', 'Tuition', 'Online App', 'Self Study'],
                 examTypes: ['Half Yearly', 'Annual', 'Unit Test 1', 'Unit Test 2', 'Weekly Test']
             },
-            {
-                className: '7',
+            '7': {
                 subjects: ['Mathematics', 'Science', 'English', 'Social Studies', 'Hindi', 'Sanskrit'],
                 learningMethods: ['School', 'Tuition', 'Online App', 'Self Study'],
                 examTypes: ['Half Yearly', 'Annual', 'Unit Test 1', 'Unit Test 2', 'Weekly Test']
             },
-            {
-                className: '8',
+            '8': {
                 subjects: ['Mathematics', 'Science', 'English', 'Social Studies', 'Hindi', 'Sanskrit'],
                 learningMethods: ['School', 'Tuition', 'Online App', 'Self Study'],
                 examTypes: ['Half Yearly', 'Annual', 'Unit Test 1', 'Unit Test 2', 'Weekly Test']
             },
-            {
-                className: '9',
+            '9': {
                 subjects: ['Mathematics', 'Science', 'English', 'Social Studies', 'Hindi', 'Sanskrit'],
                 learningMethods: ['School', 'Tuition', 'Online App', 'Self Study'],
                 examTypes: ['Half Yearly', 'Annual', 'Unit Test 1', 'Unit Test 2', 'Board Exam']
             }
-        ];
+        };
 
-        await db.classDefaults.bulkPut(defaults);
-        console.log('✅ Class defaults initialized from built-in defaults');
+        const classData = hardcodedDefaults[className];
+        if (classData) {
+            const defaultsToSave = {
+                className: className,
+                ...classData
+            };
+            await db.classDefaults.put(defaultsToSave);
+            console.log(`✅ Class ${className} defaults loaded from built-in defaults`);
+            return defaultsToSave;
+        }
+
+        console.warn(`⚠️ No defaults found for Class ${className}`);
+        return null;
     },
 
     // Migrate existing localStorage data to Dexie
@@ -442,7 +453,15 @@ const DBManager = {
 
     // === Class Defaults Operations ===
     async getClassDefaults(className) {
-        return await db.classDefaults.get(className);
+        // First check if defaults exist in IndexedDB
+        let defaults = await db.classDefaults.get(className);
+        
+        // If not, load them on-demand
+        if (!defaults) {
+            defaults = await this.loadClassDefaultsOnDemand(className);
+        }
+        
+        return defaults;
     },
 
     async getDefaultChapters(className) {
