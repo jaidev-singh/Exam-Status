@@ -421,17 +421,12 @@ const DataManager = {
         await DBManager.updateConfig('examTypes', this.examTypes);
         console.log(`✅ Exam types loaded (${this.examTypes.length}):`, this.examTypes);
 
-        // Only load chapters if tracking data is empty (first time)
-        const isFirstTime = this.trackingData.length === 0;
-        let chaptersAdded = 0;
-        if (isFirstTime) {
-            console.log(`🎯 First time setup - loading default chapters...`);
-            chaptersAdded = await this.loadDefaultChapters(className, true);
-        } else {
-            console.log(`ℹ️ Not first time - keeping existing chapter data`);
-        }
+        // Load default chapters (since user just selected class for first time)
+        console.log(`📖 Loading default chapters for Class ${className}...`);
+        const chaptersAdded = await this.loadDefaultChapters(className, true);
+        console.log(`✅ Default chapters loaded: ${chaptersAdded} chapters added`);
         
-        console.log(`✅ Class ${className} defaults loaded (${chaptersAdded} chapters added)`);
+        console.log(`✅ Class ${className} defaults loaded completely`);
         return true; // Always indicate that defaults were loaded
     },
 
