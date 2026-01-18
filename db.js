@@ -59,7 +59,7 @@ const DBManager = {
                 await db.classDefaults.bulkPut(defaultsToLoad);
                 
                 // Also load default chapters if available
-                if (deployedData.defaultChapters) {
+                if (deployedData.defaultChapters && Array.isArray(deployedData.defaultChapters) && deployedData.defaultChapters.length > 0) {
                     await db.defaultChapters.bulkPut(deployedData.defaultChapters);
                     console.log(`✅ Loaded ${deployedData.defaultChapters.length} default chapters`);
                 }
@@ -68,8 +68,8 @@ const DBManager = {
                 return;
             }
         } catch (error) {
-            console.log('⚠️ No class-defaults.json found, using built-in defaults');
-            console.error(error);
+            console.log('⚠️ No class-defaults.json found (this is normal for local file:// access)');
+            console.log('ℹ️ Using built-in defaults. To load custom defaults, deploy to a web server or use Netlify.');
         }
 
         // Fallback to hardcoded defaults
