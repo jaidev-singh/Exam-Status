@@ -363,9 +363,10 @@ const DBManager = {
     async getStudentInfo() {
         const info = await db.studentInfo.get('info');
         return info || {
-            name: 'Gravit Chaudhary',
-            class: '7',
-            reviewDate: '2026-01-14'
+            name: '',
+            class: '',
+            reviewDate: new Date().toISOString().split('T')[0],
+            locked: false
         };
     },
 
