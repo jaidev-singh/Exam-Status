@@ -1,13 +1,13 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-01-16T00:00:00.000Z",
+  "lastUpdated": "2026-01-18T12:36:42.733Z",
   "classes": {
     "6": {
       "subjects": [
-        "Mathematics",
-        "Science",
+        "Maths (Ganita Prakash)",
+        "Science (Curiosity)",
         "English",
-        "Social Studies",
+        "Social Studies (Exploring Society: India and Beyond)",
         "Hindi",
         "Sanskrit"
       ],
@@ -27,35 +27,38 @@
     },
     "7": {
       "subjects": [
-        "Mathematics",
-        "Science",
+        "Maths (Ganita Prakash)",
+        "Science (Curiosity)",
         "English",
-        "Social Studies",
         "Hindi",
-        "Sanskrit"
+        "History (Our Pasts - II)",
+        "SPL",
+        "Geography (Our Environment)",
+        "English - Poem",
+        "Computers (Navigate)"
       ],
       "learningMethods": [
         "School",
         "Tuition",
         "Online App",
-        "Self Study"
+        "Self Study",
+        "Tests"
       ],
       "examTypes": [
         "Half Yearly",
         "Annual",
         "Unit Test 1",
-        "Unit Test 2",
-        "Weekly Test"
+        "Unit Test 2"
       ]
     },
     "8": {
       "subjects": [
-        "Mathematics",
-        "Science",
+        "Maths (Ganita Prakash)",
+        "Science (Curiosity)",
         "English",
-        "Social Studies",
         "Hindi",
-        "Sanskrit"
+        "Sanskrit",
+        "Social Science (Exploring Society: India and Beyond)"
       ],
       "learningMethods": [
         "School",
@@ -94,5 +97,979 @@
         "Board Exam"
       ]
     }
+  },
+  "defaultChapters": {
+    "6": [
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "1",
+        "chapterName": "Patterns in Mathematics",
+        "description": "Exploring number and shape sequences.",
+        "id": 52
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "2",
+        "chapterName": "Lines and Angles",
+        "description": "Building blocks of geometry including measurement.",
+        "id": 53
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "3",
+        "chapterName": "Number Play",
+        "description": "Factors, multiples, and divisibility rules.",
+        "id": 54
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "4",
+        "chapterName": "Data Handling and Presentation",
+        "description": "Collecting data, pictographs, and bar graphs.",
+        "id": 55
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "5",
+        "chapterName": "Prime Time",
+        "description": "Understanding prime numbers and factorization.",
+        "id": 56
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "6",
+        "chapterName": "Perimeter and Area",
+        "description": "Foundational concepts for shapes like rectangles and squares.",
+        "id": 57
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "7",
+        "chapterName": "Fractions",
+        "description": "Types of fractions and their operations.",
+        "id": 58
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "8",
+        "chapterName": "Playing with Constructions",
+        "description": "Using compass and ruler for precise drawing.",
+        "id": 59
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "9",
+        "chapterName": "Symmetry",
+        "description": "Lines of symmetry and rotational patterns.",
+        "id": 60
+      },
+      {
+        "className": "6",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "10",
+        "chapterName": "The Other Side of Zero",
+        "description": "Introduction to negative numbers and integers.",
+        "id": 61
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "1",
+        "chapterName": "The Wonderful World of Science",
+        "description": "",
+        "id": 125
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "2",
+        "chapterName": "Diversity in the Living World",
+        "description": "",
+        "id": 126
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "3",
+        "chapterName": "Mindful Eating: A Path to a Healthy Body",
+        "description": "",
+        "id": 127
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "4",
+        "chapterName": "Exploring Magnets",
+        "description": "",
+        "id": 128
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "5",
+        "chapterName": "Measurement of Length and Motion",
+        "description": "",
+        "id": 129
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "6",
+        "chapterName": "Materials Around Us",
+        "description": "",
+        "id": 130
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "7",
+        "chapterName": "Temperature and its Measurement",
+        "description": "",
+        "id": 131
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "8",
+        "chapterName": "A Journey through States of Water",
+        "description": "",
+        "id": 132
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "9",
+        "chapterName": "Methods of Separation in Everyday Life",
+        "description": "",
+        "id": 133
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "10",
+        "chapterName": "Living Creatures: Exploring their Characteristics",
+        "description": "",
+        "id": 134
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "11",
+        "chapterName": "Nature’s Treasures",
+        "description": "",
+        "id": 135
+      },
+      {
+        "className": "6",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "12",
+        "chapterName": "Beyond Earth",
+        "description": "",
+        "id": 136
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "1",
+        "chapterName": "Locating Places on the Earth",
+        "description": "Theme A: India and the World – Land and the People",
+        "id": 137
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "2",
+        "chapterName": "Oceans and Continents",
+        "description": "Theme A: India and the World – Land and the People",
+        "id": 138
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "3",
+        "chapterName": "Landforms and Life",
+        "description": "Theme A: India and the World – Land and the People",
+        "id": 139
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "4",
+        "chapterName": "Timeline and Sources of History",
+        "description": "Theme B: Tapestry of the Past",
+        "id": 140
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "5",
+        "chapterName": "India, That Is Bharat",
+        "description": "Theme B: Tapestry of the Past",
+        "id": 141
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "6",
+        "chapterName": "The Beginnings of Indian Civilisation",
+        "description": "Theme B: Tapestry of the Past",
+        "id": 142
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "7",
+        "chapterName": "India’s Cultural Roots",
+        "description": "Theme C: Our Cultural Heritage and Knowledge Traditions",
+        "id": 144
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "8",
+        "chapterName": "Unity in Diversity, or ‘Many in the One’",
+        "description": "Theme C: Our Cultural Heritage and Knowledge Traditions",
+        "id": 145
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "9",
+        "chapterName": "Family and Community",
+        "description": "Theme D: Governance and Democracy",
+        "id": 146
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "10",
+        "chapterName": "Grassroots Democracy — Part 1: Governance",
+        "description": "Theme D: Governance and Democracy",
+        "id": 147
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "11",
+        "chapterName": "Grassroots Democracy — Part 2: Local Government in Rural Areas",
+        "description": "Theme D: Governance and Democracy",
+        "id": 148
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "12",
+        "chapterName": "Grassroots Democracy — Part 3: Local Government in Urban Areas",
+        "description": "Theme D: Governance and Democracy",
+        "id": 149
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "13",
+        "chapterName": "The Value of Work",
+        "description": "Theme E: Economic Life Around Us",
+        "id": 150
+      },
+      {
+        "className": "6",
+        "subject": "Social Studies (Exploring Society: India and Beyond)",
+        "chapterNo": "14",
+        "chapterName": "Economic Activities Around Us",
+        "description": "Theme E: Economic Life Around Us",
+        "id": 151
+      }
+    ],
+    "7": [
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "1",
+        "chapterName": "The Ever-Evolving World of Science",
+        "description": "",
+        "id": 97
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "2",
+        "chapterName": "Exploring Substances: Acidic, Basic, and Neutral",
+        "description": "",
+        "id": 98
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "3",
+        "chapterName": "Electricity: Circuits and Their Components",
+        "description": "",
+        "id": 99
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "4",
+        "chapterName": "The World of Metals and Non-Metals",
+        "description": "",
+        "id": 100
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "5",
+        "chapterName": "Changes Around Us: Physical and Chemical",
+        "description": "",
+        "id": 101
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "6",
+        "chapterName": "Adolescence: A Stage of Growth and Change",
+        "description": "",
+        "id": 102
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "7",
+        "chapterName": "Heat Transfer in Nature",
+        "description": "",
+        "id": 103
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "8",
+        "chapterName": "Measurement of Time and Motion",
+        "description": "",
+        "id": 104
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "9",
+        "chapterName": "Life Processes in Animals",
+        "description": "",
+        "id": 105
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "10",
+        "chapterName": "Life Processes in Plants",
+        "description": "",
+        "id": 106
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "11",
+        "chapterName": "Light: Shadows and Reflections",
+        "description": "",
+        "id": 107
+      },
+      {
+        "className": "7",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "12",
+        "chapterName": "Earth, Moon, and the Sun",
+        "description": "",
+        "id": 108
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "1",
+        "chapterName": "Large Numbers Around Us",
+        "description": "Working with lakhs, crores, and place value.",
+        "id": 109
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "2",
+        "chapterName": "Arithmetic Expressions",
+        "description": "Operations, brackets, and simplifying expressions.",
+        "id": 110
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "3",
+        "chapterName": "A Peek Beyond the Point",
+        "description": "Decimals, place value, and measurement units.",
+        "id": 111
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "4",
+        "chapterName": "Expressions Using Letter-Numbers",
+        "description": "First steps into algebraic expressions.",
+        "id": 112
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "5",
+        "chapterName": "Parallel and Intersecting Lines",
+        "description": "Transversals, corresponding, and alternate angles.",
+        "id": 113
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "6",
+        "chapterName": "Number Play",
+        "description": "Magic squares and Fibonacci sequences.",
+        "id": 114
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "7",
+        "chapterName": "A Tale of Three Intersecting Lines",
+        "description": "Properties and construction of triangles.",
+        "id": 115
+      },
+      {
+        "className": "7",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "8",
+        "chapterName": "Working with Fractions",
+        "description": "Multiplication and division of fractions.",
+        "id": 116
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "1",
+        "chapterName": "Introduction: Tracing Changes Through a Thousand Years",
+        "description": "",
+        "id": 117
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "2",
+        "chapterName": "Kings and Kingdoms",
+        "description": "",
+        "id": 118
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "3",
+        "chapterName": "Delhi: 12th to 15th Century",
+        "description": "",
+        "id": 119
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "4",
+        "chapterName": "The Mughals (16th to 17th Century)",
+        "description": "",
+        "id": 120
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "5",
+        "chapterName": "Tribes, Nomads and Settled Communities",
+        "description": "",
+        "id": 121
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "6",
+        "chapterName": "Devotional Paths To The Divine",
+        "description": "",
+        "id": 122
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "7",
+        "chapterName": "The Making Of Regional Cultures",
+        "description": "",
+        "id": 123
+      },
+      {
+        "className": "7",
+        "subject": "History (Our Pasts - II)",
+        "chapterNo": "8",
+        "chapterName": "18th-Century Political Formations",
+        "description": "",
+        "id": 124
+      },
+      {
+        "className": "7",
+        "subject": "Geography (Our Environment)",
+        "chapterNo": "1",
+        "chapterName": "Environment",
+        "description": "Biotic/Abiotic factors, Ecosystem, Human Environment.",
+        "id": 159
+      },
+      {
+        "className": "7",
+        "subject": "Geography (Our Environment)",
+        "chapterNo": "2",
+        "chapterName": "Inside Our Earth",
+        "description": "Crust, Mantle, Core; Rocks and Minerals.",
+        "id": 160
+      },
+      {
+        "className": "7",
+        "subject": "Geography (Our Environment)",
+        "chapterNo": "3",
+        "chapterName": "Our Changing Earth",
+        "description": "Lithospheric plates, Earthquakes, Volcanoes, and River/Wind/Ice landforms.",
+        "id": 161
+      },
+      {
+        "className": "7",
+        "subject": "Geography (Our Environment)",
+        "chapterNo": "4",
+        "chapterName": "Air",
+        "description": "Composition of Atmosphere, Weather and Climate, Pressure and Wind.",
+        "id": 162
+      },
+      {
+        "className": "7",
+        "subject": "Geography (Our Environment)",
+        "chapterNo": "5",
+        "chapterName": "Water",
+        "description": "Water cycle, Ocean circulation, Waves, Tides, and Currents.",
+        "id": 163
+      },
+      {
+        "className": "7",
+        "subject": "Geography (Our Environment)",
+        "chapterNo": "6",
+        "chapterName": "Human Environment Interactions",
+        "description": "Life in the Amazon Basin and the Ganga-Brahmaputra Basin.",
+        "id": 164
+      },
+      {
+        "className": "7",
+        "subject": "Geography (Our Environment)",
+        "chapterNo": "7",
+        "chapterName": "Life in the Deserts",
+        "description": "Sahara (Hot Desert) and Ladakh (Cold Desert).",
+        "id": 165
+      },
+      {
+        "id": 166,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "1",
+        "chapterName": "Learning Excel",
+        "description": ""
+      },
+      {
+        "id": 167,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "2",
+        "chapterName": "Learning Python",
+        "description": ""
+      },
+      {
+        "id": 168,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "3",
+        "chapterName": "Learning Conditional Statements",
+        "description": ""
+      },
+      {
+        "id": 169,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "4",
+        "chapterName": "About Big Data",
+        "description": ""
+      },
+      {
+        "id": 170,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "5",
+        "chapterName": "About Machine Learning",
+        "description": ""
+      },
+      {
+        "id": 171,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "6",
+        "chapterName": "Cyber Threads, Crimes and Safety",
+        "description": ""
+      },
+      {
+        "id": 172,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "7",
+        "chapterName": "Learning HTML",
+        "description": ""
+      },
+      {
+        "id": 173,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "8",
+        "chapterName": "About Cascading Style Sheets",
+        "description": ""
+      },
+      {
+        "id": 174,
+        "className": "7",
+        "subject": "Computers (Navigate)",
+        "chapterNo": "9",
+        "chapterName": "Animation with Krita",
+        "description": ""
+      },
+      {
+        "id": 175,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "1",
+        "chapterName": "On Equality",
+        "description": "Discusses the concept of equality in Indian democracy and challenges like the caste system."
+      },
+      {
+        "id": 176,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "2",
+        "chapterName": "Role of the Government in Health",
+        "description": "Explores public and private healthcare services."
+      },
+      {
+        "id": 177,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "3",
+        "chapterName": "How the State Government Works",
+        "description": "Explains the role of MLAs and the Legislative Assembly."
+      },
+      {
+        "id": 178,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "4",
+        "chapterName": "Growing Up as Boys and Girls",
+        "description": "Discusses gender roles and the value of housework."
+      },
+      {
+        "id": 179,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "5",
+        "chapterName": "Women Change the World",
+        "description": "Focuses on women's education and social movements."
+      },
+      {
+        "id": 180,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "6",
+        "chapterName": "Understanding Media",
+        "description": "Covers the role of media in democracy and setting agendas."
+      },
+      {
+        "id": 181,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "7",
+        "chapterName": "Markets Around Us",
+        "description": "Explains weekly markets, shops, and malls."
+      },
+      {
+        "id": 182,
+        "className": "7",
+        "subject": "SPL",
+        "chapterNo": "8",
+        "chapterName": "A Shirt in the Market",
+        "description": "Traces the journey of a product from a farmer to a consumer."
+      },
+      {
+        "id": 183,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "1",
+        "chapterName": "Hold on, Ruby!",
+        "description": ""
+      },
+      {
+        "id": 185,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "2",
+        "chapterName": "The Selfish Giant",
+        "description": ""
+      },
+      {
+        "id": 186,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "3",
+        "chapterName": "Three at Table",
+        "description": ""
+      },
+      {
+        "id": 187,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "4",
+        "chapterName": "Harold: Our Hornbill",
+        "description": ""
+      },
+      {
+        "id": 188,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "5",
+        "chapterName": "A Grain as Big as a Hen's Egg",
+        "description": ""
+      },
+      {
+        "id": 189,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "6",
+        "chapterName": "Women Who Made India Proud",
+        "description": ""
+      },
+      {
+        "id": 190,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "7",
+        "chapterName": "The Tempest",
+        "description": ""
+      },
+      {
+        "id": 191,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "8",
+        "chapterName": "The Milkman of India",
+        "description": ""
+      },
+      {
+        "id": 192,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "9",
+        "chapterName": "George Takes a Walk",
+        "description": ""
+      },
+      {
+        "id": 193,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "10",
+        "chapterName": "Getting Ready for Adventures",
+        "description": ""
+      },
+      {
+        "id": 194,
+        "className": "7",
+        "subject": "English",
+        "chapterNo": "11",
+        "chapterName": "The Mountain Stream",
+        "description": ""
+      },
+      {
+        "id": 196,
+        "className": "7",
+        "subject": "English - Poem",
+        "chapterNo": "1",
+        "chapterName": "The Few",
+        "description": ""
+      },
+      {
+        "id": 197,
+        "className": "7",
+        "subject": "English - Poem",
+        "chapterNo": "2",
+        "chapterName": "Scratching the Tiger’s Back",
+        "description": ""
+      },
+      {
+        "id": 198,
+        "className": "7",
+        "subject": "English - Poem",
+        "chapterNo": "3",
+        "chapterName": "Rain in Summer",
+        "description": ""
+      },
+      {
+        "id": 199,
+        "className": "7",
+        "subject": "English - Poem",
+        "chapterNo": "4",
+        "chapterName": "To a Butterfly",
+        "description": ""
+      },
+      {
+        "id": 200,
+        "className": "7",
+        "subject": "English - Poem",
+        "chapterNo": "5",
+        "chapterName": "The Laburnum",
+        "description": ""
+      },
+      {
+        "id": 201,
+        "className": "7",
+        "subject": "English - Poem",
+        "chapterNo": "6",
+        "chapterName": "The Nightingale and the Glow-worm",
+        "description": ""
+      },
+      {
+        "id": 202,
+        "className": "7",
+        "subject": "English - Poem",
+        "chapterNo": "7",
+        "chapterName": "The Quangle Wangle's Hat",
+        "description": ""
+      },
+      {
+        "id": 203,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "1",
+        "chapterName": "हम पंछी उन्मुक्त गगन के",
+        "description": "कविता"
+      },
+      {
+        "id": 204,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "2",
+        "chapterName": "हिमालय की बेटियाँ",
+        "description": "निबंध"
+      },
+      {
+        "id": 205,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "3",
+        "chapterName": "कठपुतली",
+        "description": "कविता"
+      },
+      {
+        "id": 206,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "4",
+        "chapterName": "मिठाईवाला",
+        "description": "कहानी"
+      },
+      {
+        "id": 207,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "5",
+        "chapterName": "पापा खो गए",
+        "description": "नाटक"
+      },
+      {
+        "id": 208,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "6",
+        "chapterName": "शाम-एक किसान",
+        "description": "कविता"
+      },
+      {
+        "id": 209,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "7",
+        "chapterName": "अपूर्व अनुभव",
+        "description": "संस्मरण"
+      },
+      {
+        "id": 210,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "8",
+        "chapterName": "रहीम के दोहे",
+        "description": "कविता"
+      },
+      {
+        "id": 211,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "9",
+        "chapterName": "एक तिनका",
+        "description": "कविता"
+      },
+      {
+        "id": 212,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "10",
+        "chapterName": "खानपान की बदलती तसवीर",
+        "description": "निबंध"
+      },
+      {
+        "id": 213,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "11",
+        "chapterName": "नीलकंठ",
+        "description": "रेखाचित्र"
+      },
+      {
+        "id": 214,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "12",
+        "chapterName": "भोर और बरखा",
+        "description": "कविता"
+      },
+      {
+        "id": 215,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "13",
+        "chapterName": "वीर कुवँर सिंह",
+        "description": "जीवनी"
+      },
+      {
+        "id": 216,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "14",
+        "chapterName": "संघर्ष के कारण मैं तुनुकमिज़ाज हो गया: धनराज",
+        "description": "साक्षात्कार"
+      },
+      {
+        "id": 217,
+        "className": "7",
+        "subject": "Hindi",
+        "chapterNo": "15",
+        "chapterName": "आश्रम का अनुमानित व्यय",
+        "description": "लेखा-जोखा"
+      }
+    ]
   }
 }
