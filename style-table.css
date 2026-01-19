@@ -11,19 +11,27 @@
 
 /* Scrollbar hint/guide */
 .table-wrapper::after {
-    content: '← Scroll horizontally to see all columns →';
+    content: '← Scroll →';
     display: block;
     text-align: center;
-    padding: 8px;
+    padding: 6px;
     background: #f8f9fa;
     color: #666;
-    font-size: 0.85em;
+    font-size: 0.75em;
     border-top: 1px solid #e0e0e0;
     position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
     z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .table-wrapper::after {
+        content: '← Scroll horizontally to see all columns →';
+        font-size: 0.85em;
+        padding: 8px;
+    }
 }
 
 @media (min-width: 1800px) {
@@ -33,10 +41,23 @@
 }
 
 table {
-    width: auto; /* Changed from 100% to auto to respect column widths */
+    width: 100%;
     border-collapse: collapse;
     background: white;
-    min-width: 1800px; /* Increased to force horizontal scroll */
+    min-width: 100%; /* Responsive for mobile */
+}
+
+/* Desktop: wider table */
+@media (min-width: 1200px) {
+    table {
+        min-width: 1400px;
+    }
+}
+
+@media (min-width: 1600px) {
+    table {
+        min-width: 1800px;
+    }
 }
 
 thead {

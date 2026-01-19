@@ -1,5 +1,262 @@
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Mobile-First Responsive Design */
+
+/* Base mobile styles (already in main styles) */
+
+/* Small phones */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        border-radius: 10px;
+        margin: 0;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .student-info {
+        padding: 15px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .info-item label {
+        font-size: 0.85em;
+    }
+
+    .info-item input,
+    .info-item select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #lockStudentInfo {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.95em;
+    }
+
+    /* Tabs */
+    .nav-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 6px;
+        padding: 8px;
+        scrollbar-width: thin;
+    }
+
+    .tab-btn {
+        padding: 14px 16px;
+        font-size: 0.9em;
+        min-width: 110px;
+        border-radius: 8px;
+        /* Enhanced visual feedback for mobile */
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .tab-btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-btn.active {
+        box-shadow: 0 4px 10px rgba(102, 126, 234, 0.5);
+        border: 2px solid #667eea;
+    }
+
+    /* Table improvements for mobile */
+    .table-wrapper {
+        margin: 0 -5px;
+        border-radius: 8px;
+    }
+
+    table {
+        min-width: 100%;
+        font-size: 0.75em;
+    }
+
+    th, td {
+        padding: 6px 4px;
+        font-size: 0.85em;
+    }
+
+    /* Make certain columns narrower on mobile */
+    th:nth-child(1), td:nth-child(1) { /* Subject */
+        min-width: 80px;
+        max-width: 100px;
+    }
+
+    th:nth-child(2), td:nth-child(2) { /* Ch No */
+        min-width: 40px;
+        width: 50px;
+    }
+
+    th:nth-child(3), td:nth-child(3) { /* Ch Name */
+        min-width: 100px;
+        max-width: 150px;
+    }
+
+    /* Hide less critical columns on very small screens */
+    .hide-mobile {
+        display: none;
+    }
+
+    /* Compact inputs */
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 14px;
+    }
+
+    /* Section headers */
+    .section-header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .section-header h2 {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .header-actions button {
+        font-size: 0.85em;
+        padding: 8px 12px;
+    }
+
+    /* Filters */
+    .filter-controls {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group select {
+        width: 100%;
+    }
+
+    /* Modals */
+    .modal-content {
+        width: 95%;
+        max-width: 95vw;
+        max-height: 85vh;
+        margin: 10px;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .modal-footer {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .modal-footer button {
+        width: 100%;
+    }
+
+    /* Cards */
+    .readiness-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .exam-stats-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-number {
+        font-size: 1.8em;
+    }
+
+    /* Daily plan */
+    .chapter-list {
+        grid-template-columns: 1fr;
+    }
+
+    .add-task-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .task-subject-select,
+    .task-input {
+        width: 100%;
+    }
+
+    .daily-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .score-display {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.9em;
+    }
+
+    /* Weekly overview */
+    .weekly-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .week-day-card {
+        padding: 12px;
+    }
+
+    /* Content sections */
+    .chapter-tracking,
+    .readiness-overview,
+    .exam-summary-content,
+    .daily-plan-section,
+    .daily-completion-section,
+    .weekly-overview-section {
+        padding: 15px;
+    }
+
+    /* Subject manager */
+    .subject-list,
+    .method-list,
+    .exam-list {
+        max-height: 200px;
+    }
+
+    .subject-item,
+    .method-item,
+    .exam-item {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+
+/* Tablets and medium screens */
+@media (min-width: 481px) and (max-width: 768px) {
     .header h1 {
         font-size: 1.8em;
     }
@@ -16,40 +273,24 @@
     .header-actions {
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     table {
-        font-size: 0.85em;
+        font-size: 0.9em;
     }
 
     th, td {
-        padding: 8px 5px;
+        padding: 8px 6px;
     }
 
     .modal-content {
-        width: 95%;
-        max-height: 90vh;
-    }
-
-    .modal-body {
-        padding: 20px;
-    }
-
-    .input-group {
-        flex-direction: column;
-    }
-
-    .nav-tabs {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .tab-btn {
-        min-width: 120px;
+        width: 90%;
+        max-height: 85vh;
     }
 
     .readiness-cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .exam-stats-cards {
@@ -59,74 +300,60 @@
     .chapter-list {
         grid-template-columns: 1fr;
     }
-
-    .add-task-form {
-        flex-direction: column;
-    }
-
-    .task-subject-select {
-        width: 100%;
-    }
-
-    .daily-actions {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .score-display {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
-@media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        border-radius: 15px;
-    }
-
-    .header {
-        padding: 20px;
-    }
-
-    .header h1 {
-        font-size: 1.5em;
-    }
-
-    .student-info {
-        padding: 20px;
-    }
-
-    .tab-btn {
-        padding: 15px 10px;
-        font-size: 0.9em;
-    }
-
-    .chapter-tracking,
-    .readiness-overview,
-    .exam-summary-content,
-    .daily-plan-section,
-    .daily-completion-section,
-    .weekly-overview-section {
-        padding: 20px;
-    }
-
-    .section-header h2 {
-        font-size: 1.5em;
+/* Large tablets and small desktops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .readiness-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .exam-stats-cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .stat-number {
-        font-size: 2em;
+    .chapter-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1400px;
+        margin: 20px auto;
     }
 
-    .weekly-stats-grid {
-        grid-template-columns: 1fr;
+    .readiness-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .exam-stats-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .chapter-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger tap targets for touch devices */
+    button, .btn, .tab-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    input, select, textarea {
+        min-height: 44px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Prevent text selection on buttons */
+    button, .btn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        user-select: none;
     }
 }

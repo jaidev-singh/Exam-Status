@@ -84,37 +84,51 @@ body {
 /* Navigation Tabs */
 .nav-tabs {
     display: flex;
-    background: #f8f9fa;
-    padding: 0;
+    background: #e9ecef;
+    padding: 10px;
     border-bottom: 3px solid #667eea;
-    gap: 0;
+    gap: 8px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .tab-btn {
     flex: 1;
-    padding: 20px 30px;
-    border: none;
-    background: #f8f9fa;
+    min-width: 120px;
+    padding: 15px 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: white;
     color: #666;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -3px;
     white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
 }
 
 .tab-btn:hover {
-    background: #e9ecef;
+    background: #f8f9fa;
     color: #667eea;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+}
+
+.tab-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tab-btn.active {
-    background: white;
-    color: #667eea;
-    border-bottom: 3px solid #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    transform: translateY(-2px);
 }
 
 /* View Sections */
