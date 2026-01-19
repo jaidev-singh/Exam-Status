@@ -387,6 +387,11 @@ const DataManager = {
 
     // Handle class change - load defaults for the selected class
     async handleClassChange(className) {
+        // Skip if class is empty or invalid
+        if (!className || className.trim() === '') {
+            return false;
+        }
+        
         // If student info is locked, don't load defaults (user already set up)
         if (this.studentInfo.locked) {
             console.log('🔒 Student info locked - class change ignored');
