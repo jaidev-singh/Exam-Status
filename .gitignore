@@ -1,6 +1,10 @@
 # Admin panel - keep local only
 admin/
 
+# Firebase
+.firebase/
+.firebaserc
+
 # Node modules
 node_modules/
 
