@@ -44,10 +44,7 @@ const DataManager = {
             this.dailyPlans = await DBManager.getTodaysPlan();
             this.dailyHistory = (await DBManager.getWeekHistory()).filter(h => h.tasks.length > 0);
 
-            // Initialize with sample data if empty
-            if (this.trackingData.length === 0) {
-                await this.initializeSampleData();
-            }
+            // No default sample data - user will load defaults via Lock button
         } catch (error) {
             console.error('Error loading data:', error);
         }
