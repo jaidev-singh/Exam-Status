@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 // Setup event listeners
 function setupEventListeners() {
     document.getElementById('studentName').addEventListener('change', updateStudentInfo);
-    document.getElementById('studentClass').addEventListener('change', updateStudentInfo);
+    // Class dropdown no longer triggers updateStudentInfo - defaults load only via Lock button
     document.getElementById('reviewDate').addEventListener('change', updateStudentInfo);
 }
 
