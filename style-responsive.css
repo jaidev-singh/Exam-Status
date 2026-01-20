@@ -1,9 +1,32 @@
 /* Mobile-First Responsive Design */
 
+/* Landscape Mode Notice */
+.landscape-notice {
+    display: none;
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Base mobile styles (already in main styles) */
 
 /* Small phones */
 @media (max-width: 480px) {
+    /* Show landscape notice in portrait mode */
+    .landscape-notice {
+        display: block;
+    }
+    
     body {
         padding: 5px;
     }
@@ -57,9 +80,12 @@
     }
 
     .tab-btn {
-        padding: 14px 16px;
-        font-size: 0.9em;
-        min-width: 110px;
+        padding: 10px 8px;
+        font-size: 0.75em;
+        min-width: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         border-radius: 8px;
         /* Enhanced visual feedback for mobile */
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -355,5 +381,12 @@
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         user-select: none;
+    }
+}
+
+/* Hide landscape notice in landscape mode */
+@media (orientation: landscape) {
+    .landscape-notice {
+        display: none !important;
     }
 }

@@ -24,11 +24,7 @@ const DataManager = {
         await DBManager.init();
         await this.loadData();
         
-        // Check for backup reminders
-        const showReminder = await DBManager.checkBackupReminder();
-        if (showReminder) {
-            this.showBackupReminder();
-        }
+        // Backup reminder removed - user can access backup via button
         
         this.isInitialized = true;
     },
