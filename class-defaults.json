@@ -54,6 +54,7 @@
     "8": {
       "subjects": [
         "Maths (Ganita Prakash)",
+        "Maths (Ganita Prakash II)",
         "Science (Curiosity)",
         "English",
         "Hindi",
@@ -1069,6 +1070,224 @@
         "chapterNo": "15",
         "chapterName": "आश्रम का अनुमानित व्यय",
         "description": "लेखा-जोखा"
+      }
+    ],
+    "8": [
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "1",
+        "chapterName": "A Square and A Cube",
+        "description": "Covers the properties, patterns, and methods to find square and cube roots.",
+        "id": 218
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "2",
+        "chapterName": "Power Play",
+        "description": "Focuses on the laws of exponents and working with very large or small numbers.",
+        "id": 219
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "3",
+        "chapterName": "A Story of Numbers",
+        "description": "Explores the history and types of numbers, including rational and irrational concepts.",
+        "id": 220
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "4",
+        "chapterName": "Quadrilaterals",
+        "description": "Deals with the classification, properties, and angle sums of various four-sided figures.",
+        "id": 221
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "5",
+        "chapterName": "Number Play",
+        "description": "Includes mathematical puzzles and divisibility rules to understand number logic.",
+        "id": 222
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "6",
+        "chapterName": "We Distribute, Yet Things Multiply",
+        "description": "Introduces the distributive property and its application in multiplication.",
+        "id": 223
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash)",
+        "chapterNo": "7",
+        "chapterName": "Proportional Reasoning - 1",
+        "description": "Teaches the basics of ratios and direct proportions in daily life.",
+        "id": 224
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash II)",
+        "chapterNo": "1",
+        "chapterName": "Fractions in Disguise",
+        "description": "Explains how to handle complex fractions and their conversion into decimals.",
+        "id": 225
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash II)",
+        "chapterNo": "2",
+        "chapterName": "The Baudhāyana-Pythagoras Theorem",
+        "description": "Links ancient Indian math to the modern theorem for right-angled triangles.",
+        "id": 226
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash II)",
+        "chapterNo": "3",
+        "chapterName": "Proportional Reasoning - 2",
+        "description": "Advanced concepts involving inverse proportions and percentage applications.",
+        "id": 227
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash II)",
+        "chapterNo": "4",
+        "chapterName": "Exploring Some Geometric Themes",
+        "description": "Covers symmetry, transformations, and advanced geometric constructions.",
+        "id": 228
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash II)",
+        "chapterNo": "5",
+        "chapterName": "Tales by Dots and Lines",
+        "description": "An introduction to data handling, including graphs and coordinate geometry basics.",
+        "id": 229
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash II)",
+        "chapterNo": "6",
+        "chapterName": "Algebra Play",
+        "description": "ISimplifies algebraic expressions and teaches how to solve linear equations.",
+        "id": 230
+      },
+      {
+        "className": "8",
+        "subject": "Maths (Ganita Prakash II)",
+        "chapterNo": "7",
+        "chapterName": "Area",
+        "description": "Focuses on calculating the area of complex 2D shapes like trapeziums and polygons.",
+        "id": 231
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "1",
+        "chapterName": "Exploring the Investigative World of Science",
+        "description": "An introduction to the scientific method, encouraging students to ask 'Why' about everyday events like a puffing puri.",
+        "id": 232
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "2",
+        "chapterName": "The Invisible Living World",
+        "description": "Beyond Our Naked Eye: Explores the structure of cells and the hidden world of microorganisms like bacteria and fungi.",
+        "id": 233
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "3",
+        "chapterName": "Health: The Ultimate Treasure",
+        "description": "Focuses on maintaining a healthy lifestyle, understanding diseases, and how vaccines protect our bodies.",
+        "id": 234
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "4",
+        "chapterName": "Electricity: Magnetic and Heating Effects",
+        "description": "Investigates how electric current can produce heat (like in geysers) and create magnetic fields (electromagnets).",
+        "id": 235
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "5",
+        "chapterName": "Exploring Forces",
+        "description": "Covers the basics of what force is, different types of contact and non-contact forces, and concepts of weight.",
+        "id": 236
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "6",
+        "chapterName": "Pressure, Winds, Storms, and Cyclones",
+        "description": "Explains how air pressure differences create winds and the science behind powerful storms and cyclones.",
+        "id": 237
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "7",
+        "chapterName": "Particulate Nature of Matter",
+        "description": "Introduces the idea that everything is made of tiny particles and explains the three states of matter (solid, liquid, gas).",
+        "id": 238
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "8",
+        "chapterName": "Nature of Matter: Elements, Compounds, and Mixtures",
+        "description": "Teaches how to classify substances into pure elements, chemical compounds, or physical mixtures.",
+        "id": 239
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "9",
+        "chapterName": "The Amazing World of Solutes, Solvents, and Solutions",
+        "description": "Explores how substances dissolve, the concept of solubility, and why objects float or sink based on density.",
+        "id": 240
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "10",
+        "chapterName": "Light: Mirrors and Lenses",
+        "description": "Covers the laws of reflection, image formation by spherical mirrors, and how lenses are used in spectacles or cameras.",
+        "id": 241
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "11",
+        "chapterName": "Keeping Time with the Skies",
+        "description": "Links astronomy to daily life, covering the phases of the moon, the origin of calendars, and artificial satellites.",
+        "id": 242
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "12",
+        "chapterName": "How Nature Works in Harmony",
+        "description": "Discusses ecosystems, how different organisms interact for survival, and the importance of ecological balance.",
+        "id": 243
+      },
+      {
+        "className": "8",
+        "subject": "Science (Curiosity)",
+        "chapterNo": "13",
+        "chapterName": "Our Home: Earth, a Unique Life-Sustaining Planet",
+        "description": "Explores the solar system and the specific conditions that make Earth the only planet capable of supporting life.",
+        "id": 244
       }
     ]
   }
